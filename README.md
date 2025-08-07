@@ -1,0 +1,1 @@
+This project focuses on the characteristic analysis of algorithms through complexity bounds. It covers the evaluation of best, average, and worst-case behaviors of algorithms, providing a comprehensive understanding of their efficiency.

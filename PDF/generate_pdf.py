@@ -1,5 +1,4 @@
 from fpdf import FPDF
-import hello
 import uuid
 
 def create_pdf_report(algo, detail_df, df, body, img_buffer):

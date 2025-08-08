@@ -2,17 +2,18 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import io
-from algorithm.algos import bubble_sort, insertion_sort, merge_sort, sample_size
+from algorithm.algos import bubble_sort, insertion_sort, merge_sort, selection_sort, sample_size
 from algorithm.algo_doc import document, description
 from PDF import generate_pdf
 import matplotlib.pyplot as p
 
 
-st.title("Alogrithm Lab")
+st.title("Algorithm Lab")
 sort_functions = {
     "Bubble Sort": bubble_sort,
     "Insertion Sort": insertion_sort,
     "Merge Sort": merge_sort,
+    "Selection Sort": selection_sort,
     "Comparison": "Comparison",
     "Other": "Others",
 }
@@ -27,8 +28,7 @@ if algo=='Other':
 
 elif algo=="Comparison":
     
-    x, y1, y2, y3 = [], [], [], []
-    all_algos = ["Bubble Sort", "Insertion Sort", "Merge Sort"]
+    all_algos = ["Bubble Sort", "Insertion Sort", "Merge Sort","Selection Sort"]
     algorithms = st.multiselect("Algorithms", all_algos, default=all_algos[0])
     st.write(f"Comparison between {algorithms}")
 
@@ -60,12 +60,15 @@ elif algo=="Comparison":
 
 
     with tab4:
+
         samples = st.slider("Max Array size", 1, 1000, 100)
         step = st.number_input("Enter intervals", min_value=1, max_value=samples, value=10,)
 
         if st.button("Run"):
 
             #code logic 
+            x, y1, y2, y3, y4 = [], [], [], [], []
+
             list = sample_size(*range(step,samples+1,step))
 
             for i in list:
@@ -73,11 +76,13 @@ elif algo=="Comparison":
                 y1.append(bubble_sort(i[:])[0])
                 y2.append(insertion_sort(i[:])[0])
                 y3.append(merge_sort(i[:])[0])
+                y4.append(selection_sort(i[:])[0])
             
             fig, plt = p.subplots()
             plt.plot(x, y1, marker='o', linestyle='-', label = "Bubble Sort")
             plt.plot(x, y2, marker='o', linestyle='-', label = "Insertion Sort")
             plt.plot(x, y3, marker='o', linestyle='-', label = "Merge Sort")
+            plt.plot(x, y4, marker='o', linestyle='-', label = "Selection Sort")
             plt.autoscale(tight=True)
             plt.set_xlabel('Array Size')
             plt.set_ylabel('Time Taken dt')
@@ -90,6 +95,7 @@ elif algo=="Comparison":
             "Bubble Sort": y1,
             "Insertion Sort": y2,
             "Merge Sort": y3,
+            "Selection Sort": y4,
             }
 
             df = pd.DataFrame(data, columns=["Array Size"] + algorithms)
@@ -180,9 +186,10 @@ else:
             get_pdf = generate_pdf.create_pdf_report(algo, detail_df, df, body, img_buffer)
             
             st.download_button(
-            label="Analysis",
+            label="Report",
             data=bytes(get_pdf),
             file_name=f"{algo} report.pdf",
+            type="primary",
             icon=":material/download:",
             mime="application/pdf",
             )

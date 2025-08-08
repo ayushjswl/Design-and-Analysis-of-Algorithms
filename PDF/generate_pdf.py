@@ -34,14 +34,14 @@ def create_pdf_report(algo, detail_df, df, body, img_buffer):
     
     pdf.set_font("Helvetica", size=14)
     pdf.multi_cell(0, 10, "Analysis :")
-    pdf.ln(4)
+    pdf.ln(3)
     pdf.set_font("Helvetica", size=12)
     for col in df.columns:
-        pdf.cell(40, 10, str(col), 1)
+        pdf.cell(40, 10, str(col), 1, align="C")
     pdf.ln()
     for _, row in df.iterrows():
         for item in row:
-            pdf.cell(40, 10, str(item), 1)
+            pdf.cell(40, 10, str(item), 1, align="C")
         pdf.ln()
     pdf.ln(10)
 

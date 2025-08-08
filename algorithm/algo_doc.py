@@ -62,6 +62,22 @@ def merge_sort_optimized(arr):
     sort_helper(arr, temp, 0, len(arr) - 1)
     return arr
 """,
+
+"Selection Sort":"""
+def selection_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        # Assume the minimum is the first unsorted element
+        min_index = i
+        # Find the minimum element in the remaining unsorted array
+        for j in range(i+1, n):
+            if arr[j] < arr[min_index]:
+                min_index = j
+        # Swap the found minimum with the first unsorted element
+        arr[i], arr[min_index] = arr[min_index], arr[i]
+    return arr
+    """
+
 }
 
 description = {
@@ -69,4 +85,6 @@ description = {
     "Bubble Sort" : ["Comparison-based sorting","Repeatedly swaps adjacent elements if in wrong order","O(n)  (when the array is already sorted)","O(n²)","O(n²)","O(1) (in-place sorting)"],
     "Insertion Sort" : ["Comparison-based sorting","Inserts each element into its correct position in a sorted portion","O(n) (when the array is already sorted)","O(n²)","O(n²)","O(1) (in-place sorting)"],
     "Merge Sort" : ["Comparison-based sorting (Divide and Conquer)","Recursively divides array into halves, sorts, and merges sorted halves","O(n log n)","O(n log n)","O(n log n)","O(n) (requires additional space for merging)"],
+    "Selection Sort" : ["Comparison based sorting (Unstable)", "Selection", "O(n²) - always performs comparisons even if already sorted", "O(n²) - compares all pairs in the worst case", "O(n²) - for reverse sorted or unsorted inputs", "O(1) - in-place sorting"]
+
 }

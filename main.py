@@ -6,12 +6,13 @@ from algorithm.algos import bubble_sort, insertion_sort, merge_sort, selection_s
 from algorithm.algo_doc import document, description
 from PDF import generate_pdf
 import matplotlib.pyplot as p
+import streamlit.components.v1 as components
 
 
 st.set_page_config(page_title="AlgoLab")
 
 #Google Tag 
-st.markdown("""
+components.html("""
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q9W5J332GX"></script>
 <script>
@@ -21,7 +22,7 @@ st.markdown("""
 
   gtag('config', 'G-Q9W5J332GX');
 </script>
-            """, unsafe_allow_html=True)
+            """, height=0)
 
 st.title("Algorithm Lab")
 sort_functions = {

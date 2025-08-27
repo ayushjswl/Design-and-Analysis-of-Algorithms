@@ -8,6 +8,13 @@ from PDF import generate_pdf
 import matplotlib.pyplot as p
 
 
+st.set_page_config(page_title="AlgoLab")
+
+# Google Search Console verification
+st.markdown("""
+    <meta name="google-site-verification" content="iOkx3Rt0-DI1UJYIVMje6HYTgEs5G97DsoFQ3YhBSrw" />
+""", unsafe_allow_html=True)
+
 st.title("Algorithm Lab")
 sort_functions = {
     "Bubble Sort": bubble_sort,

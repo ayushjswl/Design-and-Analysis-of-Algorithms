@@ -10,11 +10,7 @@ import matplotlib.pyplot as p
 
 st.set_page_config(page_title="AlgoLab")
 
-# Google Search Console verification
-st.markdown("""
-    <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE_HERE" />
-""", unsafe_allow_html=True)
-
+#Google Tag 
 st.markdown("""
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q9W5J332GX"></script>

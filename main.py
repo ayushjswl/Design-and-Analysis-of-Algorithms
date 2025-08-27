@@ -12,8 +12,20 @@ st.set_page_config(page_title="AlgoLab")
 
 # Google Search Console verification
 st.markdown("""
-    <meta name="google-site-verification" content="iOkx3Rt0-DI1UJYIVMje6HYTgEs5G97DsoFQ3YhBSrw" />
+    <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE_HERE" />
 """, unsafe_allow_html=True)
+
+st.markdown("""
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q9W5J332GX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q9W5J332GX');
+</script>
+            """, unsafe_allow_html=True)
 
 st.title("Algorithm Lab")
 sort_functions = {

@@ -21,8 +21,7 @@ components.html("""
   gtag('js', new Date());
 
   gtag('config', 'G-Q9W5J332GX');
-</script>
-            """, height=0)
+</script>""", height=0)
 
 st.title("Algorithm Lab")
 sort_functions = {
